@@ -1,8 +1,10 @@
 console.log('\'Allo \'Allo!'); // eslint-disable-line no-console
-$(function() {
-  $( '#draggable' ).draggable;
-  // $( "#draggable" ).resizable();
-});
+
+// $(function() {
+//   $( ".draggable" ).draggable();
+//   $( ".draggable" ).resizable();
+//   });
+
 
 function showDescription(elementid) {
   console.log("show " + elementid);
@@ -16,4 +18,6 @@ function showDescription(elementid) {
   //show the selected one
   var selectableName = "#"+elementid;
   $(selectableName).show();
+  $(selectableName + " > div").draggable();
+  $(selectableName + " > div > img").resizable();
 }
