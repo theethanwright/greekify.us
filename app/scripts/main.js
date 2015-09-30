@@ -18,6 +18,22 @@ function showDescription(elementid) {
   //show the selected one
   var selectableName = "#"+elementid;
   $(selectableName).show();
-  $(selectableName + " > div").draggable();
-  $(selectableName + " > div > img").resizable();
+}
+
+function addToPortrait(elementid) {
+  var selectableName = "#"+elementid;
+  var clone = $(selectableName + " > div").clone(false);
+  clone.css({top: 0, left: 0, position:'absolute', width: '300'});
+  $("#holder").append(clone);
+  clone.draggable();
+  clone.find("img").resizable();
+}
+
+function clearAll() {
+  $("#holder > img").remove();
+  resetPortrait()
+}
+
+function resetPortrait() {
+  $("#holder > .ui-draggable").remove();
 }
