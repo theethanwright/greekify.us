@@ -30,10 +30,15 @@ function addToPortrait(elementid) {
 }
 
 function clearAll() {
-  $("#holder > img").remove();
-  resetPortrait()
+
+$("#holder > .ui-draggable").remove();
 }
 
 function resetPortrait() {
+  $("#holder > img").remove();
   $("#holder > .ui-draggable").remove();
-}
+  }
+
+  function save() {
+    
+    }

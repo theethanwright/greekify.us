@@ -2,13 +2,13 @@
 <html class="no-js" lang="">
   <head>
     <meta charset="utf-8">
-    <title>greekify us</title>
+    <title>Greekify</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/main.scss">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -41,9 +41,9 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
-        <h3 class="text-muted">greekify.us</h3>
+        <h3 class="text-muted" id="greek"><img src="img/Greekify.us.png"></h3>
       </div>
 
 
@@ -82,7 +82,7 @@
           <p id="filereader">File API & FileReader API not supported</p>
           <p id="formdata">XHR2's FormData is not supported</p>
           <p id="progress">XHR2's upload progress isn't supported</p>
-          <a href="#" onclick="clearAll()"> <img src="img/button_clear2.png" class="clear"></a>           <img src="img/button_reset2.png" class="reset">
+          <a href="#" onclick="clearAll()"> <img src="img/button_clear2.png" class="clear"></a>           <a href="#" onclick="resetPortrait()"> <img src="img/button_reset2.png" class="reset"> <a href="#" onclick="save()"> <img src="img/save.png" class="reset" id="save"></a>
 
 
         </div>
@@ -173,6 +173,7 @@
         var reader = new FileReader();
         reader.onload = function (event) {
           <!-- remove Ethan image here -->
+          $("#holder > img").remove();
           var image = new Image();
           image.src = event.target.result;
           image.width = 500; // a fake resize
@@ -295,6 +296,7 @@
      if (tests.filereader === true && acceptedTypes[file.type] === true) {
        var reader = new FileReader();
        reader.onload = function (event) {
+         $("#holder > img").remove();
          var image = new Image();
          image.src = event.target.result;
          image.width = 500; // a fake resize
@@ -356,8 +358,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/jquery-ui/jquery-ui.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
