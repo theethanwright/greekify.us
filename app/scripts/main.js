@@ -37,8 +37,8 @@ $("#holder > .ui-draggable").remove();
 function resetPortrait() {
   $("#holder > img").remove();
   $("#holder > .ui-draggable").remove();
-  }
+}
 
-  function save() {
-    
-    }
+function save() {
+
+}
