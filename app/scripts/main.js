@@ -39,10 +39,14 @@ function resetPortrait() {
   $("#holder > .ui-draggable").remove();
 }
 
-function save() {
-  html2canvas(document.body, {
-  onrendered: function(canvas) {
-    document.body.appendChild(canvas);
-  }
-});
+function savePortrait() {
+  console.log("saving...");
+  html2canvas($("#holder"), {
+    onrendered: function(canvas) {
+      // document.body.appendChild(canvas);
+      canvas.toBlob(function(blob) {
+        saveAs(blob, "greekifyme.png");
+      });
+    }
+  });
 }
