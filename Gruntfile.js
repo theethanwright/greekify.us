@@ -381,7 +381,21 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin'
       ]
+    },
+
+    prod: {
+      copy: {
+        dist: {
+          files: {
+            cwd: '<%= config.dist %>',
+            dest: '../../theethanwright.github.io',
+            src: '**/*',
+            expand: true
+          }
+        }
+      }
     }
+
   });
 
 
@@ -434,7 +448,8 @@ module.exports = function (grunt) {
     'modernizr',
     'filerev',
     'usemin',
-    'htmlmin'
+    'htmlmin',
+    'prod'
   ]);
 
   grunt.registerTask('default', [
@@ -442,4 +457,11 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+
+  grunt.registerTask('prod', [
+    // Copies dist to production folder
+
+  ]
+  );
+
 };
